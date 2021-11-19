@@ -749,11 +749,12 @@ extension DropDown {
 		let x = anchorViewX + topOffset.x
 		var y = (anchorViewMaxY + topOffset.y) - tableHeight
 
-		if #available(iOS 11.0, *) {
-                    windowYAix = window.safeAreaInsets.top
-                }
-
-                let windowY = windowYAix + DPDConstant.UI.HeightPadding
+        	var windowYAix = window.bounds.minY
+        	if #available(iOS 11.0, *) {
+            	    windowYAix = window.safeAreaInsets.top
+        	}
+        
+        	let windowY = windowYAix + DPDConstant.UI.HeightPadding
 
 		if y < windowY {
 			offscreenHeight = abs(y - windowY)
